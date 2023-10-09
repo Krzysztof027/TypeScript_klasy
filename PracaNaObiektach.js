@@ -21,40 +21,29 @@ const Osoba2 = new Osoba("Mateusz", "Kazus");
 
 Osoba1.powitanie();
 Osoba2.powitanie();//wywołujemy metody na nowych zmiennych*/
-class Pojazd {
-    constructor(marka, model) {
-        this.marka = marka;
-        this.model = model;
+class Student {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
     }
-    getPojazdInformacje() {
-        return `${this.marka} ${this.model}`;
-    }
-    startSilnik() {
-        console.log(`Silnik wystartował: ${this.getPojazdInformacje()}`);
-    }
-    stopSilnik() {
-        console.log(`Silnik zatrzymany: ${this.getPojazdInformacje()}`);
+    nauczanie(przedmiot) {
+        console.log(`${this.name} uczy sie ${przedmiot}.`);
     }
 }
-//dziedziczanie klas
-class Samochod extends Pojazd {
-    /*Przy tworzeniu konstruktora wpiew musimy wpisać 2
-     zmienne z klasy dziedziczącej i dodać je po super*/
-    constructor(marka, model, iloscDrzwi) {
-        super(marka, model); //Tutaj dodajemy zmienne z klasy dziedziczącej
-        this.iloscDrzwi = iloscDrzwi;
+class Wykladowca {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
     }
-    getSamochodInformacje() {
-        return `${this.getPojazdInformacje()}, ${this.iloscDrzwi} drzwi`;
-    }
-    oglos() {
-        console.log(`Wrrr ${this.getSamochodInformacje()}`);
+    wykladanie(przedmiot) {
+        console.log(`${this.name} wyklada ${przedmiot}`);
     }
 }
-//Wywołąne instancji klasy
-const Pojazd1 = new Samochod("Volvo", "XC60", 5);
-const Pojazd2 = new Samochod("Volkswagen", "Golf", 5);
-const Pojazd3 = new Samochod("Volvo", "XC90", 7);
-Pojazd2.oglos();
-Pojazd2.startSilnik();
-Pojazd2.stopSilnik();
+//Instancje 
+//Wypisanie zmiennych -> (name, age) -> tworzenie instancji
+const student1 = new Student("Marek", 400);
+const wykladowca1 = new Wykladowca("Judasz", 57);
+//Wykladowca1 pobiera z Wykladowca
+//Student1 pobiera z Student
+student1.nauczanie("Filologia angielska");
+wykladowca1.wykladanie("Matematyka Dyskretna");
